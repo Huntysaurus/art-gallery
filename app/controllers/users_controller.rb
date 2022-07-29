@@ -5,4 +5,7 @@ def index
     render json: users, status: :ok
 end
 
+def show
+end
+
 end
