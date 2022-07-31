@@ -5,7 +5,7 @@ function Login() {
 
     return (
         <div>
-            <h2 className={styles.login}>Login Here</h2>
+            <h2 className={styles.title_name}>Login Here</h2>
         </div>
     )
 }
