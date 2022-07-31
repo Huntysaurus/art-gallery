@@ -6,9 +6,17 @@ function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    function handleLogin(e){
+    function handleSubmit(e){
         e.preventDefault()
-        console.log({username, password})
+        fetch("/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+        }).then((r) => {
+            console.log(r)
+        })
     }
 
     return (
@@ -16,7 +24,7 @@ function Login() {
             <div className={styles.wrapper}>
                 <h2 className={styles.title_name}>Login Here</h2>
 
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleSubmit}>
                     <div className={styles.form_field}>
                         <label className={styles.label}>
                             {'username: '}
