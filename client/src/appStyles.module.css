@@ -1,21 +1,42 @@
 .fancy_Header {
     color:#ffffff;
-    font-size: 3rem;
+    font-size: 2.5rem;
     background-color: #A68C7C;
     padding: 7px;
-    font-family:Arial, Helvetica, sans-serif
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 /* used for login, signup, heading names etc.. */
 .title_name {
-    font-size: 2rem;
+    font-size: 3rem;
+    color: #ffffff;
+    background-color:#3B4B59;
+    padding:4px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 2.5;
 }
 
 .wrapper {
     margin-left: auto;
     margin-right: auto;
-    width: 8rem
+    width: 30rem;
+    padding:2rem;
+    background-color: #B0C1D9;
+    text-align: center;
+    font-size: 20px;
 }
 
+.form_field {
+    padding:1rem
+}
 
+.button {
+    padding: 5px;
+    font-size: 25px;
+    background-color: #B0C1D9;
+    border: solid #3B4B59;
+    color: #3B4B59;
+    font-family:sans-serif;
+    background-color:#ffffff
+}
 
