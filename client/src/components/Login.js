@@ -15,7 +15,11 @@ function Login() {
             },
             body: JSON.stringify({ username, password }),
         }).then((r) => {
-            console.log(r)
+            if (r.ok) {
+                console.log("it worked")
+            } else {
+                console.log("didn't work")
+            }
         })
     }
 

@@ -6,19 +6,17 @@ import Navbar from './Navbar';
 function App() {
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user))
-      }
-    })
-  }, [])
+ useEffect(()=> {
+  fetch('/users')
+  .then(r => r.json)
+  .then(console.log)
+ })
 
   return (
     <>
       <Header/>
-      <Login/>
       <Navbar/>
+      <Login/>
     </>
   );
 }

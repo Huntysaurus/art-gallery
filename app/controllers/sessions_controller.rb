@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :authorize, only: :create
 
     def create
         User = User.find_by(username: params[:username])
@@ -6,7 +7,9 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: { errors: ["user not found"] }, status: :not_found
+            render json: { error: {login: "Invalid username or password"} }, status: :unauthorized
         end
     end
+
+
 end
