@@ -12,11 +12,12 @@ function App() {
   .then(users => console.log(users))
  }, [])
 
+ if (!user) return <Login onLogin={setUser} />
+
   return (
     <>
       <Header/>
       <Navbar/>
-      <Login/>
     </>
   );
 }

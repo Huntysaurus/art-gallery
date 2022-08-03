@@ -1,26 +1,31 @@
 import React, { useState } from "react";
 import styles from '../appStyles.module.css'
 
-function Login() {
+function Login({ onLogin }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch("/users", {
+        fetch("/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ username, password }),
-        }).then((r) => {
-            if (r.ok) {
-                console.log("it worked")
-            } else {
-                console.log("didn't work")
-            }
-        })
+        }).then((r) => r.json()
+        
+        // {
+            // if (r.ok) {
+            //     r.json().then((user) => console.log(user))
+
+            // } else {
+            //     // r.json().then((error) => console.log(error))
+            //     console.log('error')
+            // }
+        // }
+        ).then(console.log)
     }
 
     return (
