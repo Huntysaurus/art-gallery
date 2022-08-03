@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from '../appStyles.module.css'
+import styles from '../appStyles.module.css';
 
 function Login({ onLogin }) {
 
