@@ -29,7 +29,7 @@ function Login({ onLogin }) {
     }
 
     return (
-        <>
+        <body className={styles.bg1}>
             <div className={styles.wrapper}>
                 <h2 className={styles.title_name}>Login Here</h2>
 
@@ -63,7 +63,7 @@ function Login({ onLogin }) {
                 <p className={styles.text}>No account? Sign up here!</p>
                 <button>Sign Up</button>
             </div>
-        </>
+        </body>
     )
 }
 
