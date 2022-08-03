@@ -3,7 +3,7 @@ skip_before_action :authorize
 
     def index
         users = User.all
-        render json: users, status: :not_found
+        render json: users, status: :ok
     end
 
     def show
