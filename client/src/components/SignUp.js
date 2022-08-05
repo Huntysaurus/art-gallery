@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
 function SignUp({ onLogin }) {
 
+    const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passConfirmation, setPassConfirmation] = useState('')
@@ -32,9 +34,13 @@ function SignUp({ onLogin }) {
         })
     }
 
+    // create validations for param errors to show if rejected
+
     return (
-        <div className={styles.bg2}>
+        <>
+        <div className={styles.bg2}>    
             <div className={styles.wrapper}>
+                <button style={{marginRight:350}} onClick={()=>navigate('/login')}>back to login</button>
                 <h2 className={styles.title_name}>Sign Up</h2>
                 <p className={styles.text}>Create an account so you can share your creations with the world!</p>
 
@@ -103,6 +109,7 @@ function SignUp({ onLogin }) {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

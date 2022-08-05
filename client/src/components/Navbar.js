@@ -1,14 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import styles from '../appStyles.module.css';
 
 
 function Navbar({ user, setUser }) {
+
+    const navigate = useNavigate()
 
     function handleLogoutClick() {
         fetch('/logout', {method: "DELETE"}).then((r) => {
             if (r.ok) {
                 setUser(null)
             }
+            navigate('/login')
         })
     }
 
@@ -22,14 +26,7 @@ function Navbar({ user, setUser }) {
                 </NavLink>
             </>
             :
-            <>
-                <NavLink to="/login">
-                    Login
-                </NavLink>
-                <NavLink to='/signup'>
-                    Sign Up
-                </NavLink>
-            </>
+            null
             }
         </div>
 

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
 function Login({ onLogin }) {
 
+    const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,19 +16,16 @@ function Login({ onLogin }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ username, password }),
-        }).then((r) => r.json()
-        
-        // {
-            // if (r.ok) {
-            //     r.json().then((user) => console.log(user))
-
-            // } else {
-            //     // r.json().then((error) => console.log(error))
-            //     console.log('error')
-            // }
-        // }
-        ).then(console.log)
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then((user) => onLogin(user))
+            } else {
+                r.json().then((err) => console.log(err.errors))
+            }
+        })
     }
+
+    // create validations for the username/password params to show up for incorrect
 
     return (
         <div className={styles.bg1}>
@@ -50,6 +49,7 @@ function Login({ onLogin }) {
                             {'password: '} 
                             <input
                                 placeholder="enter password"
+                                type="password"
                                 value={password}
                                 onChange={(e)=>setPassword(e.target.value)}
                             />
@@ -60,7 +60,7 @@ function Login({ onLogin }) {
                 </form>
                     <br/>
                 <p className={styles.text}>No account? Sign up here!</p>
-                <button>Sign Up</button>
+                <button onClick={()=>navigate('/signup')}>Sign Up</button>
             </div>
         </div>
     )

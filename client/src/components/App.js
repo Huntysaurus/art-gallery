@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useHistory } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from './Login';
 import Header from './Header';
 import Navbar from './Navbar';
@@ -23,17 +23,19 @@ function App() {
   return (
     <div>
       <Header/>
-      <Navbar user={user} setUser={setUser}/>
       {user ?
       //logged in
+      <>
+        <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route exact path="/gallery" element={<Gallery/>}/>
         </Routes>
+      </>
       :
       // logged out
         <Routes>
-          <Route exact path="/login" element={<Login />}/>
-          <Route exact path="/signup" element={<SignUp onLogin={setUser}/>}/>
+          <Route exact path="/login" element={ <Login onLogin={setUser}/> }/>
+          <Route exact path="/signup" element={ <SignUp onLogin={setUser}/> }/>
         </Routes>
       }
     </div>
