@@ -2,21 +2,35 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 
-function Navbar() {
+function Navbar({ user, setUser }) {
 
-    // work on navbar and how to get a user/session to be logged in
+    function handleLogoutClick() {
+        fetch('/logout', {method: "DELETE"}).then((r) => {
+            if (r.ok) {
+                setUser(null)
+            }
+        })
+    }
 
     return (
         <div>
-            <NavLink to="/">
-                Home
-            </NavLink>
-            <NavLink to="/login">
-                Login
-            </NavLink>
-            <NavLink to='/signup'>
-                Sign Up
-            </NavLink>
+            { user ?
+            <>
+                <button onClick={handleLogoutClick} >logout</button>
+                <NavLink to="/gallery">
+                    gallery
+                </NavLink>
+            </>
+            :
+            <>
+                <NavLink to="/login">
+                    Login
+                </NavLink>
+                <NavLink to='/signup'>
+                    Sign Up
+                </NavLink>
+            </>
+            }
         </div>
 
     )

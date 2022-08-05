@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../appStyles.module.css';
 
-function SignUp() {
+function SignUp({ onLogin }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -11,13 +11,25 @@ function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(
-            {username: username, 
-            password: password,
-            passConfirmation: passConfirmation, 
-            bio: bio, 
-            profilePic: profilePic
-            })
+        fetch("/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username,
+                password,
+                password_confirmation: passConfirmation,
+                image_url: profilePic,
+                bio,
+            }),
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then((user) => onLogin(user))
+            } else {
+                r.json().then((err) => console.log(err.errors))
+            }
+        })
     }
 
     return (
@@ -32,6 +44,7 @@ function SignUp() {
                             {'Create a username: '}
                             <input
                                 placeholder="enter username"
+                                type="text"
                                  value={username}
                                  onChange={(e)=>setUsername(e.target.value)}
                             />
@@ -43,6 +56,7 @@ function SignUp() {
                             {'Create a password: '}
                             <input
                                 placeholder="enter password"
+                                type="password"
                                 value={password}
                                 onChange={(e)=>setPassword(e.target.value)}
                             />
@@ -54,6 +68,7 @@ function SignUp() {
                             {'Confirm Password: '}
                             <input
                                 placeholder="confirm password"
+                                type="password"
                                 value={passConfirmation}
                                 onChange={(e)=>setPassConfirmation(e.target.value)}
                             />
@@ -76,6 +91,7 @@ function SignUp() {
                             {'Add a Profile Picture: '}
                             <input
                                 placeholder="enter picture"
+                                type="text"
                                 value={profilePic}
                                 onChange={(e)=>setProfilePic(e.target.value)}
                             />
