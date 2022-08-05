@@ -61,3 +61,16 @@
     width: 100%;
     height: 100%;
 }
+
+.bg2 {
+    background-image: url("https://www.gizmodo.com.au/wp-content/uploads/sites/2/2014/06/25/782238561472316964.gif?quality=80&w=660");
+    background-repeat: repeat;
+    background-size: cover;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top:140px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
