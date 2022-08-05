@@ -58,8 +58,7 @@ function Login({ onLogin }) {
                     <br/>
                     <button className={styles.button} type="submit">Login</button>
                 </form>
-            </div>
-            <div className={styles.wrapper}>
+                    <br/>
                 <p className={styles.text}>No account? Sign up here!</p>
                 <button>Sign Up</button>
             </div>
