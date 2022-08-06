@@ -10,6 +10,7 @@ function SignUp({ onLogin }) {
     const [passConfirmation, setPassConfirmation] = useState('')
     const [bio, setBio] = useState('')
     const [profilePic, setProfilePic] = useState('')
+    const [errors, setErrors] = useState([])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -29,7 +30,7 @@ function SignUp({ onLogin }) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
             } else {
-                r.json().then((err) => console.log(err.errors))
+                r.json().then((err) => setErrors(err.errors))
             }
         })
     }
@@ -38,62 +39,62 @@ function SignUp({ onLogin }) {
 
     return (
         <>
-        <div className={styles.bg2}>    
-            <div className={styles.wrapper}>
+        <div className={styles.bg2}> 
+            <div className={styles.wrapper_su}>
             <button className={styles.button_2} onClick={()=>navigate('/')}>back to login</button>
                 <h2 className={styles.title_name}>Sign Up</h2>
-                <p className={styles.text}>Create an account so you can share your creations with the world!</p>
+                <p style={{ fontSize:"22px"}}>Create an account so you can share your creations with the world!</p>
 
                 <form onSubmit={handleSubmit}>
+                    <div className={styles.inner_wrapper}>
+                        <div className={styles.form_field}>
+                            <label>
+                                {'Create a username: '}
+                                <input
+                                    placeholder="enter username"
+                                    type="text"
+                                    value={username}
+                                    onChange={(e)=>setUsername(e.target.value)}
+                                />
+                            </label>
+                            <p className={styles.form_f_desc}>username must be between 6 and 15 characters</p>
+                        </div>
+                        <div className={styles.form_field}>
+                            <label>
+                                {'Create a password: '}
+                                <input
+                                    placeholder="enter password"
+                                    type="password"
+                                    value={password}
+                                    onChange={(e)=>setPassword(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                        <div className={styles.form_field}>
+                            <label>
+                                {'Confirm Password: '}
+                                <input
+                                    placeholder="confirm password"
+                                    type="password"
+                                    value={passConfirmation}
+                                    onChange={(e)=>setPassConfirmation(e.target.value)}
+                                />
+                            </label>
+                            <p style={{color:'#ffffff'}}>Password must be between 8 and 20 characters</p>
+                        </div>  
+                    </div> 
                     <div className={styles.form_field}>
-                        <label className={styles.label}>
-                            {'Create a username: '}
-                            <input
-                                placeholder="enter username"
-                                type="text"
-                                 value={username}
-                                 onChange={(e)=>setUsername(e.target.value)}
-                            />
-                        </label>
-                        <br/>
-                    </div>
-                    <div className={styles.form_field}>
-                        <label className={styles.label}>
-                            {'Create a password: '}
-                            <input
-                                placeholder="enter password"
-                                type="password"
-                                value={password}
-                                onChange={(e)=>setPassword(e.target.value)}
-                            />
-                        </label>
-                        <br/>
-                    </div>
-                    <div className={styles.form_field}>
-                        <label className={styles.label}>
-                            {'Confirm Password: '}
-                            <input
-                                placeholder="confirm password"
-                                type="password"
-                                value={passConfirmation}
-                                onChange={(e)=>setPassConfirmation(e.target.value)}
-                            />
-                        </label>
-                        <br/>
-                    </div>
-                    <div className={styles.form_field}>
-                        <label className={styles.label}>
+                        <label>
                             {'Add a bio: '}
-                            <textarea className={styles.textarea}
-                                placeholder="enter bio"
+                            <textarea className={styles.lg_input_field}
+                                placeholder="Bios aren't necessary, however, it doesn't hurt to let fellow creatoes know things like your art background and what mediums you use! Your bio can't exceed 500 characters"
                                 value={bio}
                                 onChange={(e)=>setBio(e.target.value)}
                             />
                         </label>
-                        <br/>
                     </div>
-                    <div className={styles.form_field}>
-                        <label className={styles.label}>
+                    <div>
+                        <label>
                             {'Add a Profile Picture: '}
                             <input
                                 placeholder="enter picture"
@@ -102,12 +103,16 @@ function SignUp({ onLogin }) {
                                 onChange={(e)=>setProfilePic(e.target.value)}
                             />
                         </label>
-                        <br/>
                     </div>
                     <br/>
                     <button className={styles.button} type='submit'>Sign Up</button>
                 </form>
             </div>
+            <div className={styles.errors_su} >
+                    {errors.map(er => {
+                        return <p key={er}>{er}</p>
+                    })}
+                </div>
         </div>
         </>
     )

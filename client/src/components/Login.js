@@ -21,7 +21,7 @@ function Login({ onLogin }) {
                 r.json().then((user) => onLogin(user))
             } else {
                 // r.json().then((err) => console.log(err.errors))
-                alert('The username or password you have entered is incorrect. Please try again.')
+                alert('The username and/or password you have entered is incorrect. Please try again.')
             }
         })
     }
@@ -35,7 +35,7 @@ function Login({ onLogin }) {
 
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_field}>
-                        <label className={styles.label}>
+                        <label>
                             {'username: '}
                             <input
                                 placeholder="enter username"
@@ -46,7 +46,7 @@ function Login({ onLogin }) {
                         </label>
                     </div>
                     <div className={styles.form_field}>
-                        <label className={styles.label}>
+                        <label>
                             {'password: '} 
                             <input
                                 placeholder="enter password"
