@@ -20,7 +20,8 @@ function Login({ onLogin }) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
             } else {
-                r.json().then((err) => console.log(err.errors))
+                // r.json().then((err) => console.log(err.errors))
+                alert('The username or password you have entered is incorrect. Please try again.')
             }
         })
     }
@@ -59,7 +60,7 @@ function Login({ onLogin }) {
                     <button className={styles.button} type="submit">Login</button>
                 </form>
                     <br/>
-                <p className={styles.text}>No account? Sign up here!</p>
+                <p className={styles.text}>New to Art Gallery? Sign up here!</p>
                 <button onClick={()=>navigate('/signup')}>Sign Up</button>
             </div>
         </div>
