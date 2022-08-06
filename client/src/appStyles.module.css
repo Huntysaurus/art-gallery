@@ -1,6 +1,7 @@
 .fancy_Header {
     color:#ffffff;
     font-size: 5rem;
+    text-shadow: 10px 10px 5px rgba(45, 43, 43, 0.492);
     display: inline;
     vertical-align: top;
     padding: 35px;
@@ -25,17 +26,19 @@
 }
 
 .title_name_2 {
-    margin-left: 60px;
+    margin-left: 50px;
     display: inline;
-    word-spacing: 80px;
+    text-shadow: 5px 5px 5px rgba(45, 43, 43, 0.492);
+    word-spacing: 70px;
     font-size: 50px;
-    color: #c2a492;
+    color: #ba9c8a;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .wrapper {
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 10px 10px 5px 5px rgba(45, 43, 43, 0.492);
     width: 30rem;
     padding:2rem;
     background-color: #B0C1D9;
@@ -55,11 +58,17 @@
     border: solid #3B4B59;
     color: #3B4B59;
     font-family:sans-serif;
-    background-color:#ffffff
+    background-color:#ffffff;
+    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
 }
 
 .button_2 {
     margin-right:20rem;
+    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
+}
+
+.button_3 {
+    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
 }
 
 .textarea {
