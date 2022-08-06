@@ -34,9 +34,10 @@ function App() {
       :
       // logged out
         <Routes>
-          <Route exact path="/login" element={ <Login onLogin={setUser}/> }/>
+          <Route exact path="/" element={ <Login onLogin={setUser}/> }/>
           <Route exact path="/signup" element={ <SignUp onLogin={setUser}/> }/>
         </Routes>
+      
       }
     </div>
   );

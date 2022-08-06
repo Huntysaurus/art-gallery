@@ -4,7 +4,12 @@ import styles from '../appStyles.module.css'
 function Header(){
 
     return (
-        <h1 className={styles.fancy_Header}>Art Gallery</h1>
+        <>
+        <div className={styles.banner}>
+            <h1 className={styles.fancy_Header}>Art Gallery</h1>
+            <h1 className={styles.title_name_2}>Creatives sharing work with creatives</h1>
+        </div>
+        </>
     )
 }
 

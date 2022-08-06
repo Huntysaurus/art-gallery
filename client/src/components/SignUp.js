@@ -40,7 +40,7 @@ function SignUp({ onLogin }) {
         <>
         <div className={styles.bg2}>    
             <div className={styles.wrapper}>
-                <button style={{marginRight:350}} onClick={()=>navigate('/login')}>back to login</button>
+            <button className={styles.button_2} onClick={()=>navigate('/')}>back to login</button>
                 <h2 className={styles.title_name}>Sign Up</h2>
                 <p className={styles.text}>Create an account so you can share your creations with the world!</p>
 

@@ -12,7 +12,8 @@ function Navbar({ user, setUser }) {
             if (r.ok) {
                 setUser(null)
             }
-            navigate('/login')
+            window.confirm('are you sure you want to log out?')
+            navigate('/')
         })
     }
 
