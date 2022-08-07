@@ -1,16 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from '../appStyles.module.css';
 
 function Gallery() {
 
+    const [pieces, setPieces] = useState([])
+
+    console.log(pieces)
+
     useEffect(() => {
         fetch('/pieces')
-        .then(r => r.json)
-        .then(pieces => console.log(pieces))
-    })
+        .then((r) => {
+            if (r.ok) {
+                r.json().then(works => setPieces(works))
+            } else {
+                console.log('uglonda')
+            }
+        })
+    }, [])
 
     return (
-        'the gallery page'
+        <>
+            {pieces.map(piece => {
+                return (
+                    <p>{piece.image}</p>
+                )
+            })}
+        </>
     )
 }
 

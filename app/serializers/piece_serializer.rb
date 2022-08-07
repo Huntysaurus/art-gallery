@@ -1,3 +1,4 @@
 class PieceSerializer < ActiveModel::Serializer
-  attributes :id, :title, :medium, :description, :worth, :user_id
+  attributes :id, :image, :title, :medium, :description, :worth, :user_id
+  has_one :user
 end

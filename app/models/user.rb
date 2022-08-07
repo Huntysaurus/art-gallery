@@ -3,7 +3,5 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :bio, length: { maximum: 500 }
     has_many :pieces
-
-
     has_secure_password
 end

@@ -8,7 +8,8 @@ function CreatePiece({ onCreatePiece }) {
     const [title, setTitle] = useState('')
     const [medium, setMedium] = useState('')
     const [desc, setDesc] = useState('')
-    const [worth, setWorth] = useState('')
+    const [worth, setWorth] = useState(1)
+    const [errors, setErrors] = useState([])
 
     const navigate = useNavigate()
 
@@ -17,20 +18,20 @@ function CreatePiece({ onCreatePiece }) {
         fetch("/pieces", {
             method: "POST",
             headers: {
-                "Content_Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                image,
-                title,
-                medium,
+                image: image,
+                title: title,
+                medium: medium,
                 description: desc,
-                worth,
+                worth: worth
             }),
         }).then((r)=> {
             if (r.ok) {
                 r.json().then((piece) => onCreatePiece(piece))
             } else {
-                r.json().then(console.log('ickaicka'))
+                r.json().then((err) => setErrors(err.errors))
             }
         })
     }
@@ -94,6 +95,8 @@ function CreatePiece({ onCreatePiece }) {
                             <input
                                 placeholder="Dollar amount"
                                 type="number"
+                                min="1"
+                                max="9999"
                                 value={worth}
                                 onChange={(e)=>setWorth(e.target.value)}
                             />
@@ -104,9 +107,9 @@ function CreatePiece({ onCreatePiece }) {
                 </form>
             </div>
             <div className={styles.errors_su} >
-                {/* {errors.map(err => {
+                {errors.map(err => {
                     return <p key={err}>{err}</p>
-                })} */}
+                })}
             </div>
         </div>
     )

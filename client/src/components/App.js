@@ -20,18 +20,18 @@ function App() {
     })
   },[])
 
-  // console.log(user)
+  
 
   return (
     <div>
       <Header/>
       {user ?
-      //logged in
+      //logged in ()=> setPieces(...pieces)}
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route exact path="/gallery" element={<Gallery/>}/>
-          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> setPieces(...pieces)}/>}/>
+          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> console.log}/>}/>
         </Routes>
       </>
       :
