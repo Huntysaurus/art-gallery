@@ -20,6 +20,17 @@ function App() {
     })
   },[])
 
+  useEffect(() => {
+    fetch('/pieces')
+    .then((r) => {
+        if (r.ok) {
+            r.json().then(works => setPieces(works))
+        } else {
+            console.log('uglonda')
+        }
+    })
+}, [])
+
   
 
   return (
@@ -30,8 +41,8 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/gallery" element={<Gallery/>}/>
-          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> console.log}/>}/>
+          <Route exact path="/gallery" element={<Gallery pieces={pieces} />}/>
+          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> [...pieces]}/>}/>
         </Routes>
       </>
       :

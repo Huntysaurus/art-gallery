@@ -30,6 +30,7 @@ function CreatePiece({ onCreatePiece }) {
         }).then((r)=> {
             if (r.ok) {
                 r.json().then((piece) => onCreatePiece(piece))
+                alert('Posted to the gallery successfully')
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -37,7 +38,7 @@ function CreatePiece({ onCreatePiece }) {
     }
 
     return (
-        <div className={styles.bg2}> 
+        <div className={styles.bg3}> 
             <div className={styles.wrapper_su}>
             <button className={styles.button_2} onClick={()=>navigate('/gallery')}>back to gallery</button>
                 <h2 className={styles.title_name}>Upload a Piece</h2>
@@ -52,7 +53,7 @@ function CreatePiece({ onCreatePiece }) {
                                 type="text"
                                 value={image}
                                 onChange={(e)=>setImage(e.target.value)}
-                            />
+                                />
                         </label>
                         <p>Provide a picture of your piece</p>
                     </div>
@@ -60,22 +61,22 @@ function CreatePiece({ onCreatePiece }) {
                         <label>
                             {'Title of Piece: '}
                             <input
-                                placeholder="what's your piece called?"
+                                placeholder="maximum 30 characters"
                                 type="text"
                                 value={title}
                                 onChange={(e)=>setTitle(e.target.value)}
-                            />
+                                />
                         </label>
                     </div>
                     <div className={styles.form_field}>
                         <label>
                             {'Piece Medium: '}
                             <input
-                                placeholder="what material is used?"
+                                placeholder="maximum 50 characters"
                                 type="text"
                                 value={medium}
                                 onChange={(e)=>setMedium(e.target.value)}
-                            />
+                                />
                         </label>
                     </div>   
                     <div className={styles.form_field}>
@@ -95,7 +96,7 @@ function CreatePiece({ onCreatePiece }) {
                             <input
                                 placeholder="Dollar amount"
                                 type="number"
-                                min="1"
+                                min="0"
                                 max="9999"
                                 value={worth}
                                 onChange={(e)=>setWorth(e.target.value)}

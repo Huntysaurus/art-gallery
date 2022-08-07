@@ -148,3 +148,16 @@
     width: 100%;
     height: 100%;
 }
+
+.bg3 {
+    background-image: url("https://media0.giphy.com/media/FyoaJE2iah7WYeyxWr/giphy.gif?cid=790b7611303478b560a286c18447b6db6bdd49b7ed52a30b&rid=giphy.gif&ct=g");
+    background-repeat: repeat;
+    background-size: cover;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top:135px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

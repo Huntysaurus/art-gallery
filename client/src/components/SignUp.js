@@ -56,7 +56,7 @@ function SignUp({ onLogin }) {
                                     type="text"
                                     value={username}
                                     onChange={(e)=>setUsername(e.target.value)}
-                                />
+                                    required/>
                             </label>
                             <p style={{color:'#ffffff'}}>username must be between 6 and 15 characters</p>
                         </div>
@@ -68,7 +68,7 @@ function SignUp({ onLogin }) {
                                     type="password"
                                     value={password}
                                     onChange={(e)=>setPassword(e.target.value)}
-                                />
+                                    required/>
                             </label>
                         </div>
                         <div className={styles.form_field}>
@@ -79,7 +79,7 @@ function SignUp({ onLogin }) {
                                     type="password"
                                     value={passConfirmation}
                                     onChange={(e)=>setPassConfirmation(e.target.value)}
-                                />
+                                    required/>
                             </label>
                             <p style={{color:'#ffffff'}}>Password must be between 8 and 20 characters</p>
                         </div>  
@@ -102,7 +102,7 @@ function SignUp({ onLogin }) {
                                 type="text"
                                 value={profilePic}
                                 onChange={(e)=>setProfilePic(e.target.value)}
-                            />
+                                required/>
                         </label>
                     </div>
                     <br/>
