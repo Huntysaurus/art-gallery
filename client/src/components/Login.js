@@ -20,7 +20,7 @@ function Login({ onLogin }) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
             } else {
-                // r.json().then((err) => console.log(err.errors))
+                r.json().then((err) => console.log(err.errors))
                 alert('The username and/or password you have entered is incorrect. Please try again.')
             }
         })

@@ -30,6 +30,7 @@ function SignUp({ onLogin }) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
             } else {
+            //    r.json().then((err) => console.log(err.errors))
                 r.json().then((err) => setErrors(err.errors))
             }
         })
@@ -57,7 +58,7 @@ function SignUp({ onLogin }) {
                                     onChange={(e)=>setUsername(e.target.value)}
                                 />
                             </label>
-                            <p className={styles.form_f_desc}>username must be between 6 and 15 characters</p>
+                            <p style={{color:'#ffffff'}}>username must be between 6 and 15 characters</p>
                         </div>
                         <div className={styles.form_field}>
                             <label>
@@ -87,7 +88,7 @@ function SignUp({ onLogin }) {
                         <label>
                             {'Add a bio: '}
                             <textarea className={styles.lg_input_field}
-                                placeholder="Bios aren't necessary, however, it doesn't hurt to let fellow creatoes know things like your art background and what mediums you use! Your bio can't exceed 500 characters"
+                                placeholder="Bios aren't necessary, however, it doesn't hurt to let fellow creators know things like your art background and what mediums you use! Your bio can't exceed 500 characters"
                                 value={bio}
                                 onChange={(e)=>setBio(e.target.value)}
                             />
@@ -109,10 +110,10 @@ function SignUp({ onLogin }) {
                 </form>
             </div>
             <div className={styles.errors_su} >
-                    {errors.map(er => {
-                        return <p key={er}>{er}</p>
-                    })}
-                </div>
+                {errors.map(err => {
+                    return <p key={err}>{err}</p>
+                })}
+            </div>
         </div>
         </>
     )
