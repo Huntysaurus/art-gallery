@@ -12,7 +12,6 @@ function Navbar({ user, setUser }) {
             if (r.ok) {
                 setUser(null)
             }
-            window.confirm('are you sure you want to log out?')
             navigate('/')
         })
     }
@@ -24,6 +23,9 @@ function Navbar({ user, setUser }) {
                 <button onClick={handleLogoutClick} >logout</button>
                 <NavLink to="/gallery">
                     gallery
+                </NavLink>
+                <NavLink to="/create_piece">
+                    + piece
                 </NavLink>
             </>
             :

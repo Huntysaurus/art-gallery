@@ -5,9 +5,11 @@ import Header from './Header';
 import Navbar from './Navbar';
 import SignUp from './SignUp';
 import Gallery from './Gallery';
+import CreatePiece from './CreatePiece';
 
 function App() {
   const [user, setUser] = useState(null)
+  const [pieces, setPieces] = useState([])
 
   useEffect(()=> {
     fetch('/me')
@@ -18,7 +20,7 @@ function App() {
     })
   },[])
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <div>
@@ -29,6 +31,7 @@ function App() {
         <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route exact path="/gallery" element={<Gallery/>}/>
+          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> setPieces(...pieces)}/>}/>
         </Routes>
       </>
       :

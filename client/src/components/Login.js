@@ -19,6 +19,7 @@ function Login({ onLogin }) {
         }).then((r)=> {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
+                navigate('/gallery')
             } else {
                 r.json().then((err) => console.log(err.errors))
                 alert('The username and/or password you have entered is incorrect. Please try again.')

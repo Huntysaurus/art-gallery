@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get "/users", to: 'users#index'
   post "/signup", to: 'users#create'
   post "/users", to: 'users#show'
+  get "/pieces", to: 'pieces#index'
+  post "/pieces", to: 'pieces#create'
 end
