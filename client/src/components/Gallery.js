@@ -3,16 +3,16 @@ import styles from '../appStyles.module.css';
 
 function Gallery({ pieces }) {
 
-    console.log(pieces)
-
     return (
-        <>
+        <div className={styles.grid_container}>
             {pieces.map(piece => {
                 return (
-                    <img key={piece.image} src={piece.image}/>
+                    <div>
+                        <img className={styles.gallery_card} key={piece.image} src={piece.image}/>
+                    </div>
                 )
             })}
-        </>
+        </div>
     )
 }
 

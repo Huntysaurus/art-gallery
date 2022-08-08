@@ -31,7 +31,7 @@ function Login({ onLogin }) {
 
     return (
         <div className={styles.bg1}>
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper_log}>
                 <h2 className={styles.title_name}>Login Here</h2>
 
                 <form onSubmit={handleSubmit}>

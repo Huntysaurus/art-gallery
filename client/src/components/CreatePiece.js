@@ -31,6 +31,7 @@ function CreatePiece({ onCreatePiece }) {
             if (r.ok) {
                 r.json().then((piece) => onCreatePiece(piece))
                 alert('Posted to the gallery successfully')
+                navigate('/gallery')
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -39,15 +40,15 @@ function CreatePiece({ onCreatePiece }) {
 
     return (
         <div className={styles.bg3}> 
-            <div className={styles.wrapper_su}>
+            <div className={styles.wrapper_pc}>
             <button className={styles.button_2} onClick={()=>navigate('/gallery')}>back to gallery</button>
                 <h2 className={styles.title_name}>Upload a Piece</h2>
-                <p style={{ fontSize:"22px"}}>Upload new work!</p>
+                <p className={styles.form_f_desc}>Upload new work!</p>
 
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_field}>
                         <label>
-                            {'Upload a picture of your piece: '}
+                            {'Image of piece: '}
                             <input
                                 placeholder="upload a picture!"
                                 type="text"
@@ -55,7 +56,6 @@ function CreatePiece({ onCreatePiece }) {
                                 onChange={(e)=>setImage(e.target.value)}
                                 />
                         </label>
-                        <p>Provide a picture of your piece</p>
                     </div>
                     <div className={styles.form_field}>
                         <label>
@@ -92,7 +92,7 @@ function CreatePiece({ onCreatePiece }) {
                     </div>
                     <div>
                         <label>
-                            {'Worth: '}
+                            {'Worth: $'}
                             <input
                                 placeholder="Dollar amount"
                                 type="number"
