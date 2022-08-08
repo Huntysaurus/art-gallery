@@ -100,14 +100,14 @@
 }
 
 .gallery_card {
-    border: 3px outset #382f28;
-    background-color: #b0aba8;
+    border: 3px outset #80b1b5;
+    background-color: #1d2829;
     border-radius: 2px;
     padding: 10px;
     width: 60%;
 }
 
-.grid_container {
+.gallery_container {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;

@@ -4,7 +4,7 @@ import styles from '../appStyles.module.css';
 function Gallery({ pieces }) {
 
     return (
-        <div className={styles.grid_container}>
+        <div className={styles.gallery_container}>
             {pieces.map(piece => {
                 return (
                     <div>
