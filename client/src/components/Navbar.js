@@ -19,15 +19,15 @@ function Navbar({ user, setUser }) {
     return (
         <div>
             { user ?
-            <>
-                <button onClick={handleLogoutClick} >logout</button>
-                <NavLink to="/gallery">
+            <div className={styles.nav_bar}>
+                <button className={styles.nav_button} onClick={handleLogoutClick} >logout</button>
+                <NavLink className={styles.nav_link} to="/gallery">
                     gallery
                 </NavLink>
-                <NavLink to="/create_piece">
-                    + piece
+                <NavLink className={styles.add_piece} to="/create_piece">
+                    + P
                 </NavLink>
-            </>
+            </div>
             :
             null
             }
