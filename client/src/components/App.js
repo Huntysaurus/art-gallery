@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import SignUp from './SignUp';
 import Gallery from './Gallery';
 import CreatePiece from './CreatePiece';
+import GalleryCard from './GalleryCard';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -28,8 +29,9 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/gallery" element={<Gallery pieces={pieces} onfetchPieces={setPieces} />}/>
+          <Route exact path="/gallery" element={<Gallery />}/>
           <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> [...pieces]}/>}/>
+          <Route exact path="/gallery_card" element={<GalleryCard/>}/>
         </Routes>
       </>
       :

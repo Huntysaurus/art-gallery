@@ -29,9 +29,8 @@ function CreatePiece({ onCreatePiece }) {
             }),
         }).then((r)=> {
             if (r.ok) {
-                r.json().then((piece) => onCreatePiece(piece))
-                alert('Posted to the gallery successfully')
-                navigate('/gallery')
+                r.json().then(alert('Posted to the gallery successfully'))
+                .then(navigate('/gallery'))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
