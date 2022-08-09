@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function CreatePiece({ onCreatePiece }) {
+function CreatePiece() {
 
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')

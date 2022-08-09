@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function Gallery() {
+function Gallery({ onPieceClick }) {
 
     const navigate = useNavigate()
-
-    const [piece, setPiece] = useState(null)
     const [pieces, setPieces] = useState([])
 
     useEffect(() => {
@@ -20,17 +18,12 @@ function Gallery() {
         })
     }, [])
 
-    function handlePieceClick(pieceObj) {
-        setPiece(pieceObj)
-        navigate('/gallery_card')
-    }
-
     return (
         <div className={styles.gallery_container}>
             {pieces.map(piece => {
                 return (
                     <div key={piece.image}>
-                        <img onClick={()=>handlePieceClick(piece)}
+                        <img onClick={()=>onPieceClick(piece)}
                             className={styles.gallery_card}
                             src={piece.image}/>
                     </div>

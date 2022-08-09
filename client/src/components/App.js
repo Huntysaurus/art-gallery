@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import Login from './Login';
 import Header from './Header';
 import Navbar from './Navbar';
@@ -9,8 +10,10 @@ import CreatePiece from './CreatePiece';
 import GalleryCard from './GalleryCard';
 
 function App() {
+  const navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [pieces, setPieces] = useState([])
+  const [piece, setPiece] = useState(null)
 
   useEffect(()=> {
     fetch('/me')
@@ -21,6 +24,11 @@ function App() {
     })
   },[])
 
+  function handlePieceClick(pieceObj) {
+    setPiece(pieceObj)
+    navigate('/gallery_card')
+  }
+
   return (
     <div>
       <Header/>
@@ -29,9 +37,9 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/gallery" element={<Gallery />}/>
-          <Route exact path="/create_piece" element={<CreatePiece onCreatePiece={()=> [...pieces]}/>}/>
-          <Route exact path="/gallery_card" element={<GalleryCard/>}/>
+          <Route exact path="/gallery" element={<Gallery onPieceClick={handlePieceClick} />}/>
+          <Route exact path="/create_piece" element={<CreatePiece/>}/>
+          <Route exact path="/gallery_card" element={<GalleryCard piece={piece} />}/>
         </Routes>
       </>
       :
