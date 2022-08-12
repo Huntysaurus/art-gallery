@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :galleries
   resources :pieces
   get "/me", to: 'users#show'
   post "/login", to: 'sessions#create'

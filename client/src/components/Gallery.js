@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
 function Gallery({ onPieceClick }) {
-
-    const navigate = useNavigate()
     const [pieces, setPieces] = useState([])
 
     useEffect(() => {
@@ -24,6 +21,7 @@ function Gallery({ onPieceClick }) {
                 return (
                     <div key={piece.image}>
                         <img onClick={()=>onPieceClick(piece)}
+                            title='more info'
                             className={styles.gallery_card}
                             src={piece.image}/>
                     </div>

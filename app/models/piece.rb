@@ -5,4 +5,5 @@ class Piece < ApplicationRecord
     validates :description, length: { maximum: 500}
     validates :worth, numericality: true
     belongs_to :user
+    belongs_to :gallery
 end

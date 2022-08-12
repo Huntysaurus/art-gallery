@@ -1,12 +1,17 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
+
 function GalleryCard({ piece }) {
+
+    const navigate = useNavigate()
 
     return (
         <div className={styles.card_holder}>
             <h1 className={styles.title_name}>{piece.title}</h1>
-            <img className={styles.card_page}
+            <img onClick={()=>navigate('/gallery')} className={styles.card_page}
+                title='go back'
                 src={piece.image}
                 alt={piece.title}
             />

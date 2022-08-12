@@ -33,7 +33,6 @@ function App() {
     <div>
       <Header/>
       {user ?
-      //logged in ()=> setPieces(...pieces)}
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
@@ -43,7 +42,6 @@ function App() {
         </Routes>
       </>
       :
-      // logged out
         <Routes>
           <Route exact path="/" element={ <Login onLogin={setUser}/> }/>
           <Route exact path="/signup" element={ <SignUp onLogin={setUser}/> }/>
