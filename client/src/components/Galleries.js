@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from '../appStyles.module.css';
 
-function Gallery({ onPieceClick }) {
-    const [pieces, setPieces] = useState([])
+function Galleries({ onPieceClick }) {
+    const [galleries, setGalleries] = useState([])
 
     useEffect(() => {
-        fetch('/pieces')
+        fetch('/galleries')
         .then((r) => {
             if (r.ok) {
-                r.json().then(works => setPieces(works))
+                r.json().then(venues => setGalleries(venues))
             } else {
                 r.json().then(err => console.log(err.errors))
             }
@@ -17,7 +17,14 @@ function Gallery({ onPieceClick }) {
 
     return (
         <div className={styles.gallery_container}>
-            {pieces.map(piece => {
+            {galleries.map(gallery => {
+              return (
+                <div className={styles.gallery_name} key={gallery.name}>
+                    <p>{gallery.name}</p>
+                </div>
+              )
+            })}
+            {/* {pieces.map(piece => {
                 return (
                     <div key={piece.image}>
                         <img onClick={()=>onPieceClick(piece)}
@@ -26,9 +33,9 @@ function Gallery({ onPieceClick }) {
                             src={piece.image}/>
                     </div>
                 )
-            })}
+            })} */}
         </div>
     )
 }
 
-export default Gallery
+export default Galleries

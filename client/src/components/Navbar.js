@@ -21,8 +21,8 @@ function Navbar({ user, setUser }) {
             { user ?
             <div className={styles.nav_bar}>
                 <button className={styles.nav_button} onClick={handleLogoutClick} >logout</button>
-                <NavLink className={styles.nav_link} to="/gallery">
-                    gallery
+                <NavLink className={styles.nav_link} to="/galleries">
+                    galleries
                 </NavLink>
                 <NavLink className={styles.add_piece} to="/create_piece">
                     + P

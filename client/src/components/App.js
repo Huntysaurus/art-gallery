@@ -5,7 +5,7 @@ import Login from './Login';
 import Header from './Header';
 import Navbar from './Navbar';
 import SignUp from './SignUp';
-import Gallery from './Gallery';
+import Galleries from './Galleries';
 import CreatePiece from './CreatePiece';
 import GalleryCard from './GalleryCard';
 
@@ -36,7 +36,7 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/gallery" element={<Gallery onPieceClick={handlePieceClick} />}/>
+          <Route exact path="/galleries" element={<Galleries onPieceClick={handlePieceClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece/>}/>
           <Route exact path="/gallery_card" element={<GalleryCard piece={piece} />}/>
         </Routes>
