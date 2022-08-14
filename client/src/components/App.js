@@ -9,6 +9,7 @@ import Galleries from './Galleries';
 import CreatePiece from './CreatePiece';
 import GalleryPage from './GalleryPage';
 import PiecePage from './PiecePage';
+import ProfilePage from './ProfilePage';
 
 function App() {
   const navigate = useNavigate()
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
           <Route exact path="/piece_page" element={<PiecePage piece={piece}/>}/>
+          <Route exact path="/profile" element={<ProfilePage user={user} />}/>
         </Routes>
       </>
       :
