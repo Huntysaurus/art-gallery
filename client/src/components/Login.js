@@ -61,7 +61,7 @@ function Login({ onLogin }) {
                     <button className={styles.button} type="submit">Login</button>
                 </form>
                     <br/>
-                <p className={styles.text}>New to Art Gallery? Sign up here!</p>
+                <p>New to Art Gallery? Sign up here!</p>
                 <button className={styles.button_3} onClick={()=>navigate('/signup')}>Sign Up</button>
             </div>
         </div>

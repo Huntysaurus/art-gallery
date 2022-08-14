@@ -29,15 +29,12 @@ function SignUp({ onLogin }) {
         }).then((r)=> {
             if (r.ok) {
                 r.json().then((user) => onLogin(user))
-                navigate('/gallery')
+                navigate('/galleries')
             } else {
-            //    r.json().then((err) => console.log(err.errors))
                 r.json().then((err) => setErrors(err.errors))
             }
         })
     }
-
-    // create validations for param errors to show if rejected
 
     return (
         <>

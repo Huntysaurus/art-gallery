@@ -27,16 +27,6 @@ function Galleries({ onGalleryClick }) {
                 </div>
               )
             })}
-            {/* {pieces.map(piece => {
-                return (
-                    <div key={piece.image}>
-                        <img onClick={()=>onPieceClick(piece)}
-                            title='more info'
-                            className={styles.gallery_card}
-                            src={piece.image}/>
-                    </div>
-                )
-            })} */}
         </div>
     )
 }

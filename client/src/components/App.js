@@ -7,13 +7,14 @@ import Navbar from './Navbar';
 import SignUp from './SignUp';
 import Galleries from './Galleries';
 import CreatePiece from './CreatePiece';
-import GalleryCard from './GalleryCard';
+import GalleryPage from './GalleryPage';
+import PiecePage from './PiecePage';
 
 function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-  const [pieces, setPieces] = useState([])
   const [gallery, setGallery] = useState(null)
+  const [piece, setPiece] = useState([])
 
   useEffect(()=> {
     fetch('/me')
@@ -26,10 +27,12 @@ function App() {
 
   function handleGalleryClick(galleryObj) {
     setGallery(galleryObj)
-    fetch(`/galleries/${galleryObj.id}/pieces`)
-    .then(r => r.json())
-    .then(pieces => setPieces(pieces))
-    .then(navigate('/gallery_card'))
+    navigate('/gallery_page')
+  }
+
+  function handlePieceClick(pieceObj) {
+    setPiece(pieceObj)
+    navigate('/piece_page')
   }
 
   return (
@@ -41,7 +44,8 @@ function App() {
         <Routes>
           <Route exact path="/galleries" element={<Galleries onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
-          <Route exact path="/gallery_card" element={<GalleryCard gallery={gallery} pieces={pieces}/>}/>
+          <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
+          <Route exact path="/piece_page" element={<PiecePage piece={piece}/>}/>
         </Routes>
       </>
       :

@@ -41,7 +41,7 @@ function CreatePiece({ gallery }) {
             })
             if (r.ok) {
                 r.json().then(alert('Posted to the gallery successfully'))
-                .then(navigate('/gallery_card'))
+                .then(navigate('/gallery_page'))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -51,9 +51,9 @@ function CreatePiece({ gallery }) {
     return (
         <div className={styles.bg3}> 
             <div className={styles.wrapper_pc}>
-            <button className={styles.button_2} onClick={()=>navigate('/gallery_card')}>back to gallery</button>
+            <button className={styles.button_2} onClick={()=>navigate('/gallery_page')}>back to gallery</button>
                 <h2 className={styles.title_name}>Upload a Piece</h2>
-                <p className={styles.form_f_desc}>Upload new work!</p>
+                <p className={styles.form_f_desc}>Upload work to {gallery.name}</p>
 
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_field}>
