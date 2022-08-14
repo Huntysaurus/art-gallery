@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from '../appStyles.module.css';
 
-function Galleries({ onPieceClick }) {
+function Galleries({ onGalleryClick }) {
     const [galleries, setGalleries] = useState([])
 
     useEffect(() => {
@@ -19,7 +19,10 @@ function Galleries({ onPieceClick }) {
         <div className={styles.gallery_container}>
             {galleries.map(gallery => {
               return (
-                <div className={styles.gallery_name} key={gallery.name}>
+                <div className={styles.gallery_name}
+                    key={gallery.name}
+                    onClick={()=>onGalleryClick(gallery)}
+                    >
                     <p>{gallery.name}</p>
                 </div>
               )

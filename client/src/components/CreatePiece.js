@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function CreatePiece() {
+function CreatePiece({ gallery }) {
 
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
@@ -13,9 +13,11 @@ function CreatePiece() {
 
     const navigate = useNavigate()
 
+    console.log(gallery)
+
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("/pieces", {
+        fetch(`/galleries/${gallery.id}/pieces`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -25,12 +27,21 @@ function CreatePiece() {
                 title: title,
                 medium: medium,
                 description: desc,
-                worth: worth
+                worth: worth,
+                gallery_id: gallery.id
             }),
         }).then((r)=> {
+            console.log({
+                image: image,
+                title: title,
+                medium: medium,
+                description: desc,
+                worth: worth,
+                gallery_id: gallery.id
+            })
             if (r.ok) {
                 r.json().then(alert('Posted to the gallery successfully'))
-                .then(navigate('/gallery'))
+                .then(navigate('/gallery_card'))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -40,7 +51,7 @@ function CreatePiece() {
     return (
         <div className={styles.bg3}> 
             <div className={styles.wrapper_pc}>
-            <button className={styles.button_2} onClick={()=>navigate('/gallery')}>back to gallery</button>
+            <button className={styles.button_2} onClick={()=>navigate('/gallery_card')}>back to gallery</button>
                 <h2 className={styles.title_name}>Upload a Piece</h2>
                 <p className={styles.form_f_desc}>Upload new work!</p>
 

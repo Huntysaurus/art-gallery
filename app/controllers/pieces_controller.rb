@@ -1,7 +1,9 @@
 class PiecesController < ApplicationController
 
     def index
-        render json: Piece.all
+        gallery = Gallery.find_by(id: params[:id])
+        pieces = gallery.pieces
+        render json: pieces, status: :ok
     end
     
     def create
@@ -12,7 +14,7 @@ class PiecesController < ApplicationController
     private
 
     def piece_params
-        params.permit(:image, :title, :medium, :description, :worth)
+        params.permit(:image, :title, :medium, :description, :worth, :gallery_id)
     end
 
 end

@@ -24,9 +24,9 @@ function Navbar({ user, setUser }) {
                 <NavLink className={styles.nav_link} to="/galleries">
                     galleries
                 </NavLink>
-                <NavLink className={styles.add_piece} to="/create_piece">
+                {/* <NavLink className={styles.add_piece} to="/create_piece">
                     + P
-                </NavLink>
+                </NavLink> */}
             </div>
             :
             null

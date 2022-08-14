@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post "/login", to: 'sessions#create'
   delete "/logout", to: 'sessions#destroy'
   get "/pieces", to: 'pieces#index'
-  post "/pieces", to: 'pieces#create'
+  post "/galleries/:id/pieces", to: 'pieces#create'
+  get "/galleries/:id/pieces", to: 'pieces#index'
   get "/galleries", to: 'galleries#index'
+
 end
