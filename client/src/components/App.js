@@ -16,6 +16,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [gallery, setGallery] = useState(null)
   const [piece, setPiece] = useState([])
+  const [galleries, setGalleries] = useState([])
 
   useEffect(()=> {
     fetch('/me')
@@ -25,6 +26,17 @@ function App() {
       }
     })
   },[])
+
+  useEffect(() => {
+    fetch('/galleries')
+    .then((r) => {
+        if (r.ok) {
+            r.json().then(venues => setGalleries(venues))
+        } else {
+            r.json().then(err => console.log(err.errors))
+        }
+    })
+}, [])
 
   function handleGalleryClick(galleryObj) {
     setGallery(galleryObj)
@@ -43,7 +55,7 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/galleries" element={<Galleries onGalleryClick={handleGalleryClick} />}/>
+          <Route exact path="/galleries"element={<Galleries galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
           <Route exact path="/piece_page" element={<PiecePage piece={piece}/>}/>

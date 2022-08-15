@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from '../appStyles.module.css';
 
-function Galleries({ onGalleryClick }) {
-    const [galleries, setGalleries] = useState([])
-
-    useEffect(() => {
-        fetch('/galleries')
-        .then((r) => {
-            if (r.ok) {
-                r.json().then(venues => setGalleries(venues))
-            } else {
-                r.json().then(err => console.log(err.errors))
-            }
-        })
-    }, [])
+function Galleries({ galleries, onGalleryClick }) {
 
     return (
         <div className={styles.gallery_container}>
