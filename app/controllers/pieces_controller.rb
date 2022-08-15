@@ -1,8 +1,19 @@
 class PiecesController < ApplicationController
 
-    def index
+    def index_gallery
         gallery = Gallery.find_by(id: params[:id])
         pieces = gallery.pieces
+        render json: pieces, status: :ok
+    end
+
+    def index
+        pieces = Piece.all
+        render json: pieces, status: :ok
+    end
+
+    def index_user
+        user = @current_user
+        pieces = user.pieces
         render json: pieces, status: :ok
     end
     

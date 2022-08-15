@@ -9,11 +9,11 @@ skip_before_action :authorize, only: :create
 
     def index
         users = User.all
-        render json: users, status: :ok
+        render json: users, include: :pieces, status: :ok
     end
 
     def show
-        render json: @current_user, status: :ok
+        render json: @current_user, include: :pieces, status: :ok
     end
 
     private
