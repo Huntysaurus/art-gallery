@@ -230,6 +230,13 @@
     box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
 }
 
+.buttons_div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10%;
+    margin-bottom: 15%;
+}
+
 .lg_input_field {
     margin-left: auto;
     margin-right: auto;

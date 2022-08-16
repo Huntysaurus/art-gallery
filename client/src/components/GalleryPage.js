@@ -28,7 +28,9 @@ function GalleryPage({ onPieceClick, gallery }) {
                         <img onClick={()=>onPieceClick(piece)}
                             title='more info'
                             className={styles.gallery_card}
-                            src={piece.image}/>
+                            src={piece.image}
+                            alt={piece.title}
+                            />
                     </div>
                 )
             })}
