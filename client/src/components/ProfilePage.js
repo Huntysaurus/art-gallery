@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../appStyles.module.css';
 
-function ProfilePage({ onEditPieceClick, user }) {
+function ProfilePage({ onProfilePieceClick, user }) {
     
     return (
         <div className={styles.card_holder}>
@@ -23,12 +23,13 @@ function ProfilePage({ onEditPieceClick, user }) {
                                 title='more info'
                                 src={piece.image}
                                 alt={piece.title}
+                                onClick={()=>onProfilePieceClick(piece)}
                             />
-                            <div className={styles.buttons_div}>
+                            {/* <div className={styles.buttons_div}>
                                 <button
                                     style={{fontSize:'20px'}}
                                     onClick={()=>onEditPieceClick(piece)}>edit</button>
-                            </div>
+                            </div> */}
                         </div>
                     )
                 })}

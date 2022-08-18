@@ -49,7 +49,8 @@ function App() {
     navigate('/piece_page')
   }
 
-  function handleEditPiece(pieceObj) {
+
+  function handleEditPieceClick(pieceObj) {
     setPiece(pieceObj)
     navigate('edit_piece')
   }
@@ -64,9 +65,9 @@ function App() {
           <Route exact path="/galleries"element={<Galleries galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
-          <Route exact path="/piece_page" element={<PiecePage piece={piece}/>}/>
-          <Route exact path="/profile" element={<ProfilePage onEditPieceClick={handleEditPiece} user={user} />}/>
-          <Route exact path="/edit_piece" element={<EditPiece piece={piece}/>}/>
+          <Route exact path="/piece_page" element={<PiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
+          <Route exact path="/profile" element={<ProfilePage onProfilePieceClick={handleEditPieceClick} user={user} />}/>
+          <Route exact path="/edit_piece" element={<EditPiece onFetchGalleries={setGalleries} piece={piece}/>}/>
         </Routes>
       </>
       :

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function PiecePage({ piece }) {
+function PiecePage({ onEditPieceClick, piece, user }) {
 
     console.log(piece)
     
@@ -23,6 +23,11 @@ function PiecePage({ piece }) {
             </div>
             <p>valued at ${piece.worth}</p>
             <p style={{textDecoration: 'underline'}}>creator: {piece.user.username}</p>
+            {user.id == piece.user_id ?
+            <button className={styles.button} onClick={()=>onEditPieceClick(piece)}>edit</button>
+            :
+            null    
+        }
         </div>
     )
 }

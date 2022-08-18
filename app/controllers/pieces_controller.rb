@@ -22,6 +22,12 @@ class PiecesController < ApplicationController
         render json: piece, status: :created
     end
 
+    def update
+        piece = Piece.find(params[:id])
+        piece.update!(piece_params)
+        render json: piece, status: :accepted
+    end
+
     private
 
     def piece_params

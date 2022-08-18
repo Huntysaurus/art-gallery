@@ -27,8 +27,6 @@ function Login({ onLogin }) {
         })
     }
 
-    // create validations for the username/password params to show up for incorrect
-
     return (
         <div className={styles.bg1}>
             <div className={styles.wrapper_log}>

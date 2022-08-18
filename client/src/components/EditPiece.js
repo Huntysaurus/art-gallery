@@ -2,24 +2,52 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function EditPiece({ piece }) {
+function EditPiece({ onFetchGalleries, piece }) {
 
     const navigate = useNavigate()
-    const [errors, setErrors] = useState(null)
+    const [errors, setErrors] = useState([])
 
     const [image, setImage] = useState(piece.image)
     const [title, setTitle] = useState(piece.title)
     const [medium, setMedium] = useState(piece.medium)
     const [desc, setDesc] = useState(piece.description)
+    const [worth, setWorth] = useState(piece.worth)
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log('submitted')
+        fetch(`/pieces/${piece.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                image: image,
+                title: title,
+                medium: medium,
+                description: desc,
+                worth: worth
+            }),
+        }).then((r)=> {
+            console.log({
+                image: image,
+                title: title,
+                medium: medium,
+                description: desc,
+                worth: worth
+            })
+            if (r.ok) {
+                fetch('/galleries')
+                .then(r=>r.json())
+                .then(galleries => onFetchGalleries(galleries))
+                r.json().then(alert('Piece updated successfully'))
+                .then(navigate('/profile'))
+            } else {
+                r.json().then((err) => setErrors(err.errors))
+            }
+        })
     }
 
     return (
-        // <h1>edit piece</h1>
-
         <div className={styles.bg3}> 
             <div className={styles.wrapper_pc}>
             <button className={styles.button_2} onClick={()=>navigate('/profile')}>back to profile</button>
@@ -79,8 +107,8 @@ function EditPiece({ piece }) {
                                 type="number"
                                 min="0"
                                 max="9999"
-                                value={piece.worth}
-                                // onChange={(e)=>setWorth(e.target.value)}
+                                value={worth}
+                                onChange={(e)=>setWorth(e.target.value)}
                             />
                         </label>
                     </div>
@@ -89,9 +117,9 @@ function EditPiece({ piece }) {
                 </form>
             </div>
             <div className={styles.errors_su} >
-                {/* {errors.map(err => {
+                {errors.map(err => {
                     return <p key={err}>{err}</p>
-                })} */}
+                })}
             </div>
         </div>
     )
