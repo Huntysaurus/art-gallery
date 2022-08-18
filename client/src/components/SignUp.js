@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function SignUp({ onLogin }) {
+function SignUp({ onSignup }) {
 
     const navigate = useNavigate()
     const [username, setUsername] = useState('')
@@ -28,7 +28,7 @@ function SignUp({ onLogin }) {
             }),
         }).then((r)=> {
             if (r.ok) {
-                r.json().then((user) => onLogin(user))
+                r.json().then((user) => onSignup(user))
                 navigate('/galleries')
             } else {
                 r.json().then((err) => setErrors(err.errors))

@@ -16,6 +16,11 @@ class PiecesController < ApplicationController
         pieces = user.pieces
         render json: pieces, status: :ok
     end
+
+    def show
+        piece = Piece.find(params[:id])
+        render json: piece, status: :ok
+    end
     
     def create
         piece = @current_user.pieces.create!(piece_params)
@@ -26,6 +31,11 @@ class PiecesController < ApplicationController
         piece = Piece.find(params[:id])
         piece.update!(piece_params)
         render json: piece, status: :accepted
+    end
+
+    def destroy
+        piece = Piece.find(params[:id])
+        piece.destroy
     end
 
     private

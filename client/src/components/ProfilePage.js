@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../appStyles.module.css';
 
-function ProfilePage({ onProfilePieceClick, user }) {
+function ProfilePage({ onProfilePieceClick, user, pieces }) {
     
     return (
         <div className={styles.card_holder}>
@@ -16,7 +16,7 @@ function ProfilePage({ onProfilePieceClick, user }) {
             <br/>
             <h3 style={{marginTop:'10%', }}>Owned Pieces</h3>
             <div style={{marginRight:"9%"}} className={styles.gallery_container}>
-                {user.pieces.map(piece => {
+                {pieces.map(piece => {
                     return (
                         <div key={piece.id}>
                             <img className={styles.gallery_card}
@@ -25,11 +25,6 @@ function ProfilePage({ onProfilePieceClick, user }) {
                                 alt={piece.title}
                                 onClick={()=>onProfilePieceClick(piece)}
                             />
-                            {/* <div className={styles.buttons_div}>
-                                <button
-                                    style={{fontSize:'20px'}}
-                                    onClick={()=>onEditPieceClick(piece)}>edit</button>
-                            </div> */}
                         </div>
                     )
                 })}

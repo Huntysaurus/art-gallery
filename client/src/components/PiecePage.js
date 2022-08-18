@@ -23,7 +23,7 @@ function PiecePage({ onEditPieceClick, piece, user }) {
             </div>
             <p>valued at ${piece.worth}</p>
             <p style={{textDecoration: 'underline'}}>creator: {piece.user.username}</p>
-            {user.id == piece.user_id ?
+            {user.id === piece.user_id ?
             <button className={styles.button} onClick={()=>onEditPieceClick(piece)}>edit</button>
             :
             null    

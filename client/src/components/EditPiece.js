@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function EditPiece({ onFetchGalleries, piece }) {
+function EditPiece({ onDeletePiece, onUpdatedPiece, piece }) {
 
     const navigate = useNavigate()
     const [errors, setErrors] = useState([])
@@ -28,30 +28,30 @@ function EditPiece({ onFetchGalleries, piece }) {
                 worth: worth
             }),
         }).then((r)=> {
-            console.log({
-                image: image,
-                title: title,
-                medium: medium,
-                description: desc,
-                worth: worth
-            })
             if (r.ok) {
-                fetch('/galleries')
-                .then(r=>r.json())
-                .then(galleries => onFetchGalleries(galleries))
-                r.json().then(alert('Piece updated successfully'))
-                .then(navigate('/profile'))
+                r.json().then((piece) => onUpdatedPiece(piece))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
         })
     }
 
+    function handleDeletePiece(piece) {
+        fetch(`/pieces/${piece.id}`, {
+            method: "DELETE",
+        })
+        alert('Piece Deleted')
+        onDeletePiece(piece.id)
+        navigate('/galleries')
+    }
+
+
+
     return (
         <div className={styles.bg3}> 
+            <button onClick={()=>handleDeletePiece(piece)} style={{marginTop: "20px", marginLeft:'10%' }} className={styles.button}>Delete Piece</button>
             <div className={styles.wrapper_pc}>
             <button className={styles.button_2} onClick={()=>navigate('/profile')}>back to profile</button>
-            <button className={styles.button_3}>Delete Piece</button>
                 <h2 className={styles.title_name}>Edit Piece</h2>
 
                 <form onSubmit={handleSubmit}>

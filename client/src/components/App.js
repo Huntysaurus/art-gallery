@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [gallery, setGallery] = useState(null)
   const [piece, setPiece] = useState([])
+  const [pieces, setPieces] = useState([])
   const [galleries, setGalleries] = useState([])
 
   useEffect(()=> {
@@ -39,6 +40,12 @@ function App() {
     })
 }, [])
 
+  function handleLogin(user) {
+    setUser(user)
+    console.log(user.pieces)
+    setPieces(user.pieces)
+  }
+
   function handleGalleryClick(galleryObj) {
     setGallery(galleryObj)
     navigate('/gallery_page')
@@ -49,10 +56,21 @@ function App() {
     navigate('/piece_page')
   }
 
-
   function handleEditPieceClick(pieceObj) {
     setPiece(pieceObj)
     navigate('edit_piece')
+  }
+
+  function handleUpdatePiece(updatedPiece) {
+    (alert('Piece updated successfully'))
+    const updatedPieces = user.pieces.filter(piece => piece.id === updatedPiece ? updatedPiece : piece)
+    setPieces(updatedPieces)
+  }
+
+  function handleDeletePiece(id) {
+    const updatedPieces = pieces.filter(piece => piece.id !== id)
+    console.log(updatedPieces)
+    setPieces(updatedPieces)
   }
 
   return (
@@ -66,14 +84,14 @@ function App() {
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
           <Route exact path="/piece_page" element={<PiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
-          <Route exact path="/profile" element={<ProfilePage onProfilePieceClick={handleEditPieceClick} user={user} />}/>
-          <Route exact path="/edit_piece" element={<EditPiece onFetchGalleries={setGalleries} piece={piece}/>}/>
+          <Route exact path="/profile" element={<ProfilePage onProfilePieceClick={handleEditPieceClick} user={user} pieces={pieces}/>}/>
+          <Route exact path="/edit_piece" element={<EditPiece onDeletePiece={handleDeletePiece} onUpdatedPiece={handleUpdatePiece} piece={piece}/>}/>
         </Routes>
       </>
       :
         <Routes>
-          <Route exact path="/" element={ <Login onLogin={setUser}/> }/>
-          <Route exact path="/signup" element={ <SignUp onLogin={setUser}/> }/>
+          <Route exact path="/" element={ <Login onLogin={handleLogin}/> }/>
+          <Route exact path="/signup" element={ <SignUp onSignup={handleLogin}/> }/>
         </Routes>
       }
     </div>
