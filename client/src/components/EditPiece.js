@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function EditPiece({ onDeletePiece, onUpdatedPiece, piece }) {
+function EditPiece({ piece }) {
 
     const navigate = useNavigate()
     const [errors, setErrors] = useState([])
@@ -29,7 +29,8 @@ function EditPiece({ onDeletePiece, onUpdatedPiece, piece }) {
             }),
         }).then((r)=> {
             if (r.ok) {
-                r.json().then((piece) => onUpdatedPiece(piece))
+                (alert('Piece updated successfully'))
+                navigate('/profile')
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -41,8 +42,7 @@ function EditPiece({ onDeletePiece, onUpdatedPiece, piece }) {
             method: "DELETE",
         })
         alert('Piece Deleted')
-        onDeletePiece(piece.id)
-        navigate('/galleries')
+        navigate('/profile')
     }
 
 

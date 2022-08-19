@@ -210,6 +210,18 @@
     width: 55rem;
 }
 
+.profile_image {
+    border: 3px outset #6d6d6d;
+    background-color: #191919;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+    padding: 10px;
+    width: 60%;
+    box-shadow: 8px 8px 5px 2px rgba(45, 43, 43, 0.857);
+}
+
 .button {
     padding: 5px;
     font-size: 25px;

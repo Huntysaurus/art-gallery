@@ -19,6 +19,7 @@ function GalleryPage({ onPieceClick, gallery }) {
     return (
         <div>
             <h1 style={{marginTop:0}} className={styles.title_name} >{gallery.name}</h1>
+            <button style={{marginLeft: '30px'}}className={styles.button} onClick={()=>navigate('/galleries')}>Back</button>
             <h2 className={styles.text}>{gallery.address}</h2>
             <button onClick={()=>navigate('/create_piece')} className={styles.add_piece}>+ P</button>
             <div className={styles.gallery_container}>

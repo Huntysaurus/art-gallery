@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
 function PiecePage({ onEditPieceClick, piece, user }) {
-
-    console.log(piece)
     
     const navigate = useNavigate()
 
