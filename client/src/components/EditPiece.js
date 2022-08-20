@@ -42,7 +42,7 @@ function EditPiece({ piece }) {
             method: "DELETE",
         })
         alert('Piece Deleted')
-        navigate('/profile')
+        navigate(-2)
     }
 
 
@@ -51,7 +51,7 @@ function EditPiece({ piece }) {
         <div className={styles.bg3}> 
             <button onClick={()=>handleDeletePiece(piece)} style={{marginTop: "20px", marginLeft:'10%' }} className={styles.button}>Delete Piece</button>
             <div className={styles.wrapper_pc}>
-            <button className={styles.button_2} onClick={()=>navigate('/profile')}>back to profile</button>
+            <button className={styles.button_2} onClick={()=>navigate(-1)}>go back</button>
                 <h2 className={styles.title_name}>Edit Piece</h2>
 
                 <form onSubmit={handleSubmit}>

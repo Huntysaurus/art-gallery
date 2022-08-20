@@ -9,6 +9,7 @@ import Galleries from './Galleries';
 import CreatePiece from './CreatePiece';
 import GalleryPage from './GalleryPage';
 import PiecePage from './PiecePage';
+import UserPiecePage from './UserPiecePage';
 import ProfilePage from './ProfilePage';
 import EditPiece from './EditPiece';
 
@@ -19,6 +20,7 @@ function App() {
   const [piece, setPiece] = useState([])
   const [pieces, setPieces] = useState([])
   const [galleries, setGalleries] = useState([])
+  const [loading, setIsLoading] = useState([])
 
   useEffect(()=> {
     fetch('/me')
@@ -50,10 +52,13 @@ function App() {
   }
 
   function handleProfilePieceClick(pieceObj) {
+    setIsLoading(true)
     fetch(`pieces/${pieceObj.id}`)
-    .then(r => r.json())
-    .then(piece => setPiece(piece))
-    navigate('piece_page')
+    .then(r => {
+      setIsLoading(false)
+      r.json().then((piece) => setPiece(piece))
+    })
+    navigate('user_piece')
   }
 
   return (
@@ -66,9 +71,10 @@ function App() {
           <Route exact path="/galleries"element={<Galleries onFetchGalleries={setGalleries} galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
-          <Route exact path="/piece_page" element={<PiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
+          <Route exact path="/piece_page" element={<PiecePage loading={loading} onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
           <Route exact path="/profile" element={<ProfilePage onFetchUserPieces={setPieces} onProfilePieceClick={handleProfilePieceClick} user={user} pieces={pieces}/>}/>
           <Route exact path="/edit_piece" element={<EditPiece piece={piece}/>}/>
+          <Route exact path="/user_piece" element={<UserPiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece} loading={loading}/>}/>
         </Routes>
       </>
       :
