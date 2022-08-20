@@ -233,6 +233,19 @@
     box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
 }
 
+.edit_button {
+    padding: 5px;
+    font-size: 25px;
+    background-color: #B0C1D9;
+    border: solid #3B4B59;
+    color: #3B4B59;
+    font-family:sans-serif;
+    background-color:#ffffff;
+    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
+    margin-left: 80%;
+    margin-top: 10px;
+}
+
 .button_2 {
     margin-right:30rem;
     box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);

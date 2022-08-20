@@ -14,7 +14,7 @@ function GalleryPage({ onPieceClick, gallery }) {
     fetch(`/galleries/${gallery.id}/pieces`)
     .then(r => r.json())
     .then(pieces => setPieces(pieces))
-    }, [])
+    }, [], gallery.id)
 
     return (
         <div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
@@ -9,7 +9,7 @@ function PiecePage({ onEditPieceClick, piece, user }) {
     return (
         <div className={styles.card_holder}>
             <h1 className={styles.title_name}>{piece.title}</h1>
-            <img onClick={()=>navigate('/gallery_page')} className={styles.card_page}
+            <img onClick={()=>navigate(-1)} className={styles.card_page}
                 title='go back'
                 src={piece.image}
                 alt={piece.title}

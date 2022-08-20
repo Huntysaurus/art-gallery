@@ -29,20 +29,8 @@ function App() {
     })
   },[])
 
-  useEffect(() => {
-    fetch('/galleries')
-    .then((r) => {
-        if (r.ok) {
-            r.json().then(venues => setGalleries(venues))
-        } else {
-            r.json().then(err => console.log(err.errors))
-        }
-    })
-}, [])
-
   function handleLogin(user) {
     setUser(user)
-    console.log(user.pieces)
     setPieces(user.pieces)
   }
 
@@ -52,7 +40,6 @@ function App() {
   }
 
   function handlePieceClick(pieceObj) {
-    console.log(pieceObj)
     setPiece(pieceObj)
     navigate('/piece_page')
   }
@@ -62,6 +49,13 @@ function App() {
     navigate('edit_piece')
   }
 
+  function handleProfilePieceClick(pieceObj) {
+    fetch(`pieces/${pieceObj.id}`)
+    .then(r => r.json())
+    .then(piece => setPiece(piece))
+    navigate('piece_page')
+  }
+
   return (
     <div>
       <Header/>
@@ -69,11 +63,11 @@ function App() {
       <>
         <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route exact path="/galleries"element={<Galleries galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
+          <Route exact path="/galleries"element={<Galleries onFetchGalleries={setGalleries} galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
           <Route exact path="/piece_page" element={<PiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
-          <Route exact path="/profile" element={<ProfilePage onFetchUserPieces={setPieces} onProfilePieceClick={handleEditPieceClick} user={user} pieces={pieces}/>}/>
+          <Route exact path="/profile" element={<ProfilePage onFetchUserPieces={setPieces} onProfilePieceClick={handleProfilePieceClick} user={user} pieces={pieces}/>}/>
           <Route exact path="/edit_piece" element={<EditPiece piece={piece}/>}/>
         </Routes>
       </>

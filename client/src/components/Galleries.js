@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from '../appStyles.module.css';
 
-function Galleries({ galleries, onGalleryClick }) {
+function Galleries({ onFetchGalleries, galleries, onGalleryClick }) {
+
+  useEffect(() => {
+    fetch('/galleries')
+    .then((r) => {
+        if (r.ok) {
+            r.json().then((venues) => onFetchGalleries(venues))
+        } else {
+            r.json().then(err => console.log(err.errors))
+        }
+    })
+}, [])
 
     return (
         <div className={styles.gallery_container}>
