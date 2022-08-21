@@ -7,8 +7,15 @@ class PiecesController < ApplicationController
     end
 
     def index
+        if params[:gallery_id]
+            gallery = Gallery.find(params[:gallery_id])
+            pieces = gallery.pieces
+        elsif params[:user_id]
+            user = @current_user
+            pieces = user.pieces
+        end
         pieces = Piece.all
-        render json: pieces, status: :ok
+        render json: pieces, include: [:user, :gallery], status: :ok
     end
 
     def index_user

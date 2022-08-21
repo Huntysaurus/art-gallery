@@ -17,7 +17,7 @@ function CreatePiece({ gallery }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`/galleries/${gallery.id}/pieces`, {
+        fetch(`/pieces`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -42,6 +42,7 @@ function App() {
   }
 
   function handlePieceClick(pieceObj) {
+    console.log(pieceObj)
     setPiece(pieceObj)
     navigate('/piece_page')
   }

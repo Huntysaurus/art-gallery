@@ -10,6 +10,8 @@ function GalleryPage({ onPieceClick, gallery }) {
     const [pieces, setPieces] = useState([])
     const navigate = useNavigate()
 
+    console.log(gallery.id)
+
     useEffect(()=> {
     fetch(`/galleries/${gallery.id}/pieces`)
     .then(r => r.json())
