@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from '../appStyles.module.css';
 
-function ProfilePage({ onFetchUserPieces, onProfilePieceClick, user, pieces }) {
+function ProfilePage({ onDeleteAccountClick, onFetchUserPieces, onProfilePieceClick, user, pieces }) {
 
     useEffect(()=> {
         fetch(`users/${user.id}/pieces`)
@@ -10,7 +10,14 @@ function ProfilePage({ onFetchUserPieces, onProfilePieceClick, user, pieces }) {
     }, [])
 
     return (
-        <div className={styles.card_holder}>
+        <> 
+            <button
+                style={{marginLeft:'88%'}}
+                className={styles.edit_button}
+                onClick={()=>onDeleteAccountClick(user)}
+                >
+                    delete account</button>
+            <div className={styles.card_holder}>
             <h1 className={styles.title_name}>{user.username}</h1>
             <img className={styles.profile_image}
                 src={user.image_url}
@@ -38,6 +45,7 @@ function ProfilePage({ onFetchUserPieces, onProfilePieceClick, user, pieces }) {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

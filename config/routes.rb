@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/me", to: 'users#show'
   post "/users", to: 'users#show'
   get "/users/:id/pieces", to: 'pieces#index_user'
+  delete "/users/:id", to: 'users#destroy'
   post "/signup", to: 'users#create'
   get "/users", to: 'users#index'
   post "/login", to: 'sessions#create'

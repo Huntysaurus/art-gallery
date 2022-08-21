@@ -16,6 +16,12 @@ skip_before_action :authorize, only: :create
         render json: @current_user, include: :pieces, status: :ok
     end
 
+    def destroy
+        user = @current_user
+        user.destroy
+        head :no_content
+    end
+
     private
 
     def user_params

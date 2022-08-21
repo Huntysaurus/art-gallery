@@ -51,6 +51,12 @@ function App() {
     navigate('edit_piece')
   }
 
+  function handleUpdatePiece(pieceObj) {
+    setPiece(pieceObj)
+    alert('piece updated successfully!')
+    navigate(-1)
+  }
+
   function handleProfilePieceClick(pieceObj) {
     setIsLoading(true)
     fetch(`pieces/${pieceObj.id}`)
@@ -61,19 +67,40 @@ function App() {
     navigate('user_piece')
   }
 
+  function handleLogout() {
+    fetch('/logout', {method: "DELETE"}).then((r) => {
+        if (r.ok) {
+            setUser(null)
+        }
+        navigate('/')
+    })
+}
+
+  function handleDeleteAccount(user) {
+    let message = window.confirm('Are you sure you want to delete your account? You will lose all of your pieces!')
+    if (message == true) {
+      fetch(`/users/${user.id}`, {method: "DELETE"}).then((r) => {
+        if (r.ok) {
+          handleLogout()
+          navigate('/')
+        }
+      })
+    }
+  }
+
   return (
     <div>
       <Header/>
       {user ?
       <>
-        <Navbar user={user} setUser={setUser}/>
+        <Navbar onLogoutClick={handleLogout} user={user} setUser={setUser}/>
         <Routes>
           <Route exact path="/galleries"element={<Galleries onFetchGalleries={setGalleries} galleries={galleries} onGalleryClick={handleGalleryClick} />}/>
           <Route exact path="/create_piece" element={<CreatePiece gallery={gallery}/>}/>
           <Route exact path="/gallery_page" element={<GalleryPage onPieceClick={handlePieceClick} gallery={gallery} />}/>
           <Route exact path="/piece_page" element={<PiecePage loading={loading} onEditPieceClick={handleEditPieceClick} user={user} piece={piece}/>}/>
-          <Route exact path="/profile" element={<ProfilePage onFetchUserPieces={setPieces} onProfilePieceClick={handleProfilePieceClick} user={user} pieces={pieces}/>}/>
-          <Route exact path="/edit_piece" element={<EditPiece piece={piece}/>}/>
+          <Route exact path="/profile" element={<ProfilePage onDeleteAccountClick={handleDeleteAccount} onFetchUserPieces={setPieces} onProfilePieceClick={handleProfilePieceClick} user={user} pieces={pieces}/>}/>
+          <Route exact path="/edit_piece" element={<EditPiece onUpdatePiece={handleUpdatePiece} piece={piece}/>}/>
           <Route exact path="/user_piece" element={<UserPiecePage onEditPieceClick={handleEditPieceClick} user={user} piece={piece} loading={loading}/>}/>
         </Routes>
       </>
