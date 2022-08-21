@@ -81,8 +81,8 @@ function App() {
     if (message == true) {
       fetch(`/users/${user.id}`, {method: "DELETE"}).then((r) => {
         if (r.ok) {
+          setUser(null)
           handleLogout()
-          navigate('/')
         }
       })
     }
