@@ -1,11 +1,5 @@
 class PiecesController < ApplicationController
 
-    def index_gallery
-        gallery = Gallery.find_by(id: params[:id])
-        pieces = gallery.pieces
-        render json: pieces, status: :ok
-    end
-
     def index
         if params[:gallery_id]
             gallery = Gallery.find(params[:gallery_id])
@@ -16,6 +10,12 @@ class PiecesController < ApplicationController
         end
         pieces = Piece.all
         render json: pieces, include: [:user, :gallery], status: :ok
+    end
+    
+    def index_gallery
+        gallery = Gallery.find_by(id: params[:id])
+        pieces = gallery.pieces
+        render json: pieces, status: :ok
     end
 
     def index_user
