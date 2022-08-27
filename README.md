@@ -57,6 +57,8 @@ The project currently has a User, Piece, and Gallery model. Potential updates fo
 * On the Piece page, the creator's name will contain onClick() functionality which will navigate to that user's page. The page will contain user profile info and all owned pieces. Pieces will contain onClick() functionality to navigate to the page for clicked piece.
 ---
 
+![Image Link](Screenshot 2022-08-26 192319.png)
+
 ### Sources for gif backgrounds
 
 https://gizmodo.com
