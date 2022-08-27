@@ -97,15 +97,27 @@ The project currently has a User, Piece, and Gallery model. Potential updates fo
 * On the Piece page, the creator's name will contain onClick() functionality which will navigate to that user's page. The page will contain user profile info and all owned pieces. Pieces will contain onClick() functionality to navigate to the page for clicked piece.
 ---
 
+### Sources from Usage example photos:
+
+>Sources for profile picture at https://gettyimages.com
+
+Sources for artwork:
+
+>https://www.madisonartshop.com/20-most-famous-paintings-of-all-time.html
+
+>https://www.timeout.com/newyork/art/top-famous-sculptures-of-all-time
+
+>https://www.atxfinearts.com/blogs/news/100-most-famous-paintings-in-the-world
+
 ### Sources for gif backgrounds
 
 https://gizmodo.com
 
-Gismodo Australia polkadot image - https://www.gizmodo.com.au/2014/06/these-mesmerising-gifs-are-visual-proof-that-maths-can-be-cool/
+>Gismodo Australia polkadot image - https://www.gizmodo.com.au/2014/06/these-mesmerising-gifs-are-visual-proof-that-maths-can-be-cool/
 
-Gismodo Australia squares image - https://www.gizmodo.com.au/wp-content/uploads/sites/2/2014/06/25/782238561472316964.gif?quality=80&w=660
+>Gismodo Australia squares image - https://www.gizmodo.com.au/wp-content/uploads/sites/2/2014/06/25/782238561472316964.gif?quality=80&w=660
 
 
 https://giphy.com
 
-rainbow gradient gif background - https://media0.giphy.com/media/FyoaJE2iah7WYeyxWr/giphy.gif?cid=790b7611303478b560a286c18447b6db6bdd49b7ed52a30b&rid=giphy.gif&ct=g
+>rainbow gradient gif background - https://media0.giphy.com/media/FyoaJE2iah7WYeyxWr/giphy.gif?cid=790b7611303478b560a286c18447b6db6bdd49b7ed52a30b&rid=giphy.gif&ct=g
