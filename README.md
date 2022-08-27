@@ -101,7 +101,7 @@ The project currently has a User, Piece, and Gallery model. Potential updates fo
 
 ### Sources from Usage example photos:
 
->Sources for profile picture at https://gettyimages.com
+>profile picture at https://gettyimages.com
 
 Sources for artwork:
 
