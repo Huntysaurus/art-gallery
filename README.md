@@ -46,17 +46,18 @@ $ rails db:seed
 
 ### link to heroku version: https://art-gallery-1.herokuapp.com/
 ---
-## Content Sources
-Sources for profile pictures at https://gettyimages.com
+## Project Status
 
-Sources for artwork:
+The project currently has a User, Piece, and Gallery model. Potential updates for Art Gallery will contain the following:
 
-https://www.madisonartshop.com/20-most-famous-paintings-of-all-time.html
+* On the client users can leave comments on pieces. Individual pieces will contain the ability to post a comment and list all comments. The back-end will contain a comment model
 
-https://www.timeout.com/newyork/art/top-famous-sculptures-of-all-time
+* Users can like other pieces. The client will contain like/unlike functionality as well as total likes.
 
-https://www.atxfinearts.com/blogs/news/100-most-famous-paintings-in-the-world
+* On the Piece page, the creator's name will contain onClick() functionality which will navigate to that user's page. The page will contain user profile info and all owned pieces. Pieces will contain onClick() functionality to navigate to the page for clicked piece.
+---
 
+### Sources for gif backgrounds
 
 https://gizmodo.com
 
