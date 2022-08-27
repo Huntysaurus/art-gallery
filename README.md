@@ -4,7 +4,7 @@ a content-sharing app for artists created with Node.js, React, Ruby on Rails, Po
 ## Introduction
 ---
 
-Art Gallery's primary developmental focus was to practice techniques using back-end models with different types of relationships using PostgreSQL alongside ActiveRecord and a front-end client. 
+Art Gallery's primary developmental focus was to practice techniques using back-end models with different types of relationships and a front-end client. 
  
 The focus of the front-end client is to render a smooth and seamless UI that 
 takes advantage of routing behavior and custom styling.
@@ -82,7 +82,7 @@ When a piece is clicked, whether from the profile page or the gallery page, the 
 
 On the profile page, The user can view their profile as well as all the pieces they currently own. All owned pieces have clickable functionality that is similar to the functionality from the gallery.
 
->note: The user can delete their profile from this page. When clicked, a prompt will appear asking to confirm. If the user is deleted, they along with all their created piece will be destroyed from the database and the user will be navigated back to the login page.
+>note: The user can delete their profile from this page. When clicked, a prompt will appear asking to confirm. If the user is deleted, they along with all their created pieces will be destroyed from the database and the user will be navigated back to the login page.
 
 ## Project Status
 
@@ -92,7 +92,7 @@ The project currently has a User, Piece, and Gallery model. Potential updates fo
 
 * On the client, users can leave comments on pieces. Individual pieces will contain the ability to post a comment and list all comments. The back-end will contain a comment model
 
-* Users can like other pieces. The client will contain like/unlike functionality as well as total likes.
+* Users can like other pieces. The client will contain like/unlike functionality on the piece page, as well as total likes.
 
 * On the Piece page, the creator's name will contain onClick() functionality which will navigate to that user's page. The page will contain user profile info and all owned pieces. Pieces will contain onClick() functionality to navigate to the page for clicked piece.
 ---
