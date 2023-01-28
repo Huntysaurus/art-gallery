@@ -19,15 +19,20 @@ takes advantage of routing behavior and custom styling.
 * Rails 6.1.6.1
 ---
 ## Launch
-To launch and use the application run these commands in the project root folder:
+The installment walkthrough is configured for windows and assumes you have postgreSQL installed.
+
+To launch and use the application, run these terminal commands in the project root folder:
 
 ```
 $ bundle install
 
 $ npm install --prefix client
 ```
-
-run the backend server on  http://localhost:3000:
+start the postgreSQL server on the backend using sudo command:
+```
+sudo service postgreSQL start
+``` 
+run the backend rails server on  http://localhost:3000:
 ```
 $ rails s
 ```
@@ -39,7 +44,7 @@ galleries can not be created using the app but rather contain gallery seed data 
 ```
 $ rails db:seed
 ```
-*note*: without any gallery data, a user will not have the ability to create content(pieces). The seeds.rb file can be altered to contain different data if the user chooses, but it is impossible to create galleries from within the client.
+*note*: without any gallery data, a user will not have the ability to create content(pieces). The seeds.rb file can be altered to contain different data if the user chooses, but it is impossible to create galleries from within the client's front-end UI.
 
 
 ### link to heroku version: https://art-gallery-1.herokuapp.com/
@@ -48,14 +53,15 @@ $ rails db:seed
 
 ![Image Link](https://github.com/Huntysaurus/art-gallery/blob/main/images/login.png)
 
-Upon opening the app a login page is presented. In order to create a user, you must click on the signup button at the bottom of the login card. This will navigate to the signup page.
+When first opening the app, a login page is presented. In order to create a user, you must click on the signup button at the bottom of the login card. This will navigate to the signup page.
 
 ![Image Link](https://github.com/Huntysaurus/art-gallery/blob/main/images/Screenshot%202022-08-26%20193158.png)
 
 Users must provide all information with the exception of the bio field.
 
->note: the profile picture will accept any type of text. If the text provided is not a link to an image file that is not already on public domain, the image will not appear on the profile page. After providing all necessary information, click signup.
+>note: the profile picture will accept any type of text. If the text provided is not a link to an image file that is not already on public domain, the image will not appear on the profile page.
 
+After providing all necessary information, click signup.
 You will be navigated to the galleries page and a user will be created and stored in the database.
 
 ![Image Link](https://github.com/Huntysaurus/art-gallery/blob/main/images/Screenshot%202022-08-26%20193724.png)
@@ -80,7 +86,7 @@ When a piece is clicked, whether from the profile page or the gallery page, the 
 
 ![Image Link](https://github.com/Huntysaurus/art-gallery/blob/main/images/Screenshot%202022-08-26%20193821.png)
 
-On the profile page, The user can view their profile as well as all the pieces they currently own. All owned pieces have clickable functionality that is similar to the functionality from the gallery.
+On the profile page, the user can view their profile as well as all the pieces they currently own. All owned pieces have clickable functionality that is similar to the functionality from the gallery.
 
 >note: The user can delete their profile from this page. When clicked, a prompt will appear asking to confirm. If the user is deleted, they along with all their created pieces will be destroyed from the database and the user will be navigated back to the login page.
 
@@ -96,6 +102,29 @@ The project currently has a User, Piece, and Gallery model. Potential updates fo
 
 * On the Piece page, the creator's name will contain onClick() functionality which will navigate to that user's page. The page will contain user profile info and all owned pieces. Pieces will contain onClick() functionality to navigate to the page for clicked piece.
 ---
+
+# Contributing
+
+There is still much in store for this project and, over time, I will make add new features or changes. That being said, I'm open to seeing what others would like to do with this project. Always open to constructive criticism and making new coding connections as well!
+
+* Fork to your local environment
+* Create changes:
+```
+git checkout -b my-creation
+```
+* commit your changes:
+```
+git commit -am 'add a feature'
+```
+* push changes to the branch:
+```
+git push origin 'my-new-feature'
+```
+* submit a pull request
+
+## History
+
+version 0.1 (2023-1-27) - Fully functional and updated README.md file
 
 ## Sources
 

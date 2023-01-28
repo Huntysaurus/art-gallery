@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/galleries/:id/pieces", to: 'pieces#index_gallery'
   get "/users/:id/pieces", to: 'pieces#index_user'
 
+  get"/search/:item", to: 'users#search'
+
   resources :pieces
 
   resources :users, only: [:show, :create, :destroy, :index] do

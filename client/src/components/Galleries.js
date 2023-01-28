@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from '../appStyles.module.css';
 
 function Galleries({ onFetchGalleries, galleries, onGalleryClick }) {
@@ -15,7 +15,8 @@ function Galleries({ onFetchGalleries, galleries, onGalleryClick }) {
 }, [])
 
     return (
-        <div className={styles.gallery_container}>
+        <>
+            <div className={styles.gallery_container}>
             {galleries.map(gallery => {
               return (
                 <div className={styles.gallery_name}
@@ -27,6 +28,7 @@ function Galleries({ onFetchGalleries, galleries, onGalleryClick }) {
               )
             })}
         </div>
+        </>
     )
 }
 
