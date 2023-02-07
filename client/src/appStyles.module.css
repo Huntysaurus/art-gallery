@@ -118,6 +118,7 @@
     float: left;
     width:40%;
     margin-left: 29%;
+    border-radius: 50px;
 }
 
 .inner_wrapper {
@@ -136,10 +137,11 @@
     background-color: #7796af;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.792);
+    box-shadow: 8px 5px 8px 2px rgba(106, 106, 106, 0.792);
     width: 25rem;
     color:#ffffff;
     padding: 3px;
+    border-radius: 20px;
 }
 
 .gallery_container {
@@ -257,7 +259,12 @@
 
 .button_2 {
     margin-right:30rem;
-    box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
+    box-shadow: 8px 5px 8px 2px rgba(95, 95, 95, 0.492);
+    border-radius: 10px;
+    border: none;
+    background-color: #7796af;
+    color: white;
+    padding: 5px;
 }
 
 .button_3 {
@@ -286,6 +293,7 @@
     resize: none;
     padding: 5px;
     height: 50px;
+    border-radius: 20px;
 }
 
 .errors_su {
