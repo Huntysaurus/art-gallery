@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from '../appStyles.module.css';
 
 function Galleries({ onFetchGalleries, galleries, onGalleryClick }) {

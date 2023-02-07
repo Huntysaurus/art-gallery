@@ -13,9 +13,9 @@ function GalleryPage({ onPieceClick, gallery }) {
     console.log(gallery.id)
 
     useEffect(()=> {
-    fetch(`/galleries/${gallery.id}/pieces`)
-    .then(r => r.json())
-    .then(pieces => setPieces(pieces))
+        fetch(`/galleries/${gallery.id}/pieces`)
+        .then(r => r.json())
+        .then(pieces => setPieces(pieces))
     }, [], gallery.id)
 
     return (

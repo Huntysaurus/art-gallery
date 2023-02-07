@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../appStyles.module.css';
 
-function UserPiecePage({ onEditPieceClick, user, piece, loading }) {
+function UserPiecePage({ onEditPieceClick, piece, loading }) {
 
     const navigate = useNavigate()
 

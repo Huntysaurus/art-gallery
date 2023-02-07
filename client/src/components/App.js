@@ -79,7 +79,7 @@ function App() {
 
   function handleDeleteAccount(user) {
     let message = window.confirm('Are you sure you want to delete your account? You will lose all of your pieces!')
-    if (message == true) {
+    if (message === true) {
       fetch(`/users/${user.id}`, {method: "DELETE"}).then((r) => {
         if (r.ok) {
           setUser(null)
