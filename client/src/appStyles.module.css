@@ -36,10 +36,6 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-.nav_bar {
-    background-color: rgba(45, 43, 43, 0.492);
-}
-
 .nav_link {
     margin-left: 25px;
     font-size: 30px;
@@ -60,6 +56,7 @@
     font-family:sans-serif;
     background-color:#ffffff;
     box-shadow: 8px 5px 8px 2px rgba(45, 43, 43, 0.492);
+    cursor: pointer;
 }
 
 .nav_button {
@@ -265,6 +262,7 @@
     background-color: #7796af;
     color: white;
     padding: 5px;
+    cursor: pointer;
 }
 
 .button_3 {

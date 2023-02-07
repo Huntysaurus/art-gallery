@@ -8,7 +8,7 @@ function Navbar({ onLogoutClick, user }) {
     return (
         <div>
             { user ?
-            <div className={styles.nav_bar}>
+            <div>
                 <button className={styles.nav_button} onClick={onLogoutClick} >logout</button>
                 <NavLink className={styles.nav_link} to="/galleries">
                     galleries
