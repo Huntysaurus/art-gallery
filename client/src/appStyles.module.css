@@ -7,6 +7,7 @@
     padding: 35px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .title_name {

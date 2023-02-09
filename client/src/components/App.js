@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div>
-      <Header/>
+      <Header user={user} />
       {user ?
       <>
         <Navbar onLogoutClick={handleLogout} user={user} setUser={setUser}/>
